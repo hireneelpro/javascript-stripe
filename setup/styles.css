@@ -1,0 +1,349 @@
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.75rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 5px rgba(243, 233, 233, 0.801);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--clr-white);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  /* margin-bottom: 0.75rem; */
+}
+h1 {
+  font-size: 2.75rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+/*
+=============== 
+Stripe Styles
+===============
+*/
+.nav {
+  margin: 0 auto;
+  position: fixed;
+  z-index: 5;
+  justify-content: center;
+  width: 100%;
+}
+.nav-center {
+  max-width: 1170px;
+  margin: 0 auto;
+  width: 100%;
+  height: 5rem;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-title {
+  color: white;
+  text-shadow: var(--dark-shadow);
+}
+.nav-links {
+  display: none;
+  text-transform: capitalize;
+}
+.nav-link {
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 1.5rem 2rem;
+  color: white;
+}
+.btn {
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.sign-in {
+  display: none;
+}
+.menu-bar {
+  font-size: larger;
+  padding: 0 0.5rem;
+  width: fit-content;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+  .menu-bar {
+    display: none;
+  }
+  .sign-in {
+    display: block;
+  }
+}
+* {
+  /* border: 1px solid; */
+}
+
+/* ===== hero ===== */
+.hero {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+
+  position: relative;
+}
+.hero::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: url(./images/new.jpg) center/cover fixed no-repeat;
+  clip-path: polygon(0 0, 100% 0, 100% 36%, 0 80%);
+}
+
+.hero-content {
+  height: 100%;
+  padding: 10rem 2rem 0;
+  max-width: 1170px;
+  margin: 0 auto;
+  position: absolute;
+}
+.hero-btn {
+  padding: 0.35rem 0.75rem;
+  background-color: var(--clr-primary-5);
+  border: 3px solid white;
+  outline: 1px solid var(--clr-primary-4);
+}
+.hero-title {
+  font-size: 2.5rem;
+}
+.hero-text {
+  color:var(--clr-grey-4);
+  width: 80%;
+  font-size: 1rem;
+  padding: 2rem 0;
+}
+a {
+  color: white;
+}
+.hero-phone {
+  box-shadow: var(--dark-shadow);
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+  .hero-content {
+    display: grid;
+    grid-template-columns: 2fr auto;
+  }
+  .hero-phone {
+    display: block;
+  }
+  .hero-content {
+    padding-top: 5rem;
+  }
+}
+/* ===== sidebar ===== */
+.sidebar {
+  width: 90%;
+  height: 75%;
+  overflow: hidden;
+  background-color: white;
+  display: grid;
+ box-shadow: var(--dark-shadow);
+  border-radius: var(--radius);
+  position: absolute;
+  /* transform: translateX(-120%); */
+  height: 0;
+  transition: var(--transition);
+  z-index: 2;
+}
+.sidebar-center {
+  padding: 2rem;
+}
+.sub-link-title {
+  text-align: left;
+  font-weight: 700;
+}
+.sidebar-close {
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: right;
+  border: none;
+  align-self: flex-start;
+  background: transparent;
+  cursor: pointer;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: left;
+  padding-bottom: 2rem;
+}
+.links a i {
+  color: black;
+  padding-right: 1rem;
+}
+.links a {
+  display: block;
+  padding-top: 0.5rem;
+}
+.link-label {
+  color: var(--clr-grey-6);
+  text-transform: capitalize;
+}
+.show {
+  /* transform: translateX(0); */
+  height: 75%;
+}
+/* ===== dropdown link ===== */
+.dropdown-link {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  padding: 2rem 1rem;
+  border-radius: var(--radius);
+  background-color: white;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: none;
+}
+.dropdown-link::before {
+  content: "";
+  display: block;
+  height: 15px;
+  width: 20px;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: white;
+}
+.dropdown-link h4 {
+  padding-left: 2rem;
+}
+.show-dropdown {
+  display: block;
+}
+.dropdown-link i {
+  color: black;
+  padding: 0 0.4rem 0 1.4rem;
+}
+.link-container {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 25rem;
+}
